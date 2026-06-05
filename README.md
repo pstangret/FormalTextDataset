@@ -1,6 +1,6 @@
 # 📚 Formal Text Dataset Builder
 
-Profesjonalny, modularny pipeline w Pythonie do ekstrakcji tekstów oraz generowania ich sztucznych odpowiedników (AI). Projekt powstał na potrzeby badań nad detekcją modeli językowych (AI Text Recognition). 
+Modularny pipeline w Pythonie do ekstrakcji tekstów oraz generowania ich sztucznych odpowiedników (AI). Projekt powstał na potrzeby badań nad detekcją modeli językowych (AI Text Recognition). 
 
 System pobiera teksty pisane przez człowieka (z Wikipedii i Wolnych Lektur), a następnie wykorzystuje modele LLM (Llama 3.1 / Gemini 2.0) do wygenerowania tekstów o identycznej tematyce i długości, tworząc wysokiej jakości, zbalansowany zbiór danych parzystych (Human vs AI).
 
