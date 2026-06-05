@@ -1,8 +1,3 @@
-Oto kompletny, profesjonalny plik `README.md`, który idealnie podsumowuje całą pracę, jaką włożyłeś w ten projekt. Opisuje on zarówno architekturę "Big Data", jak i nowoczesne standardy zarządzania środowiskiem przez `uv`.
-
-Skopiuj poniższy kod i wklej go do swojego pliku **`README.md`** w głównym folderze projektu:
-
-```markdown
 # 📚 Formal Text Dataset Builder
 
 Profesjonalny, modularny pipeline w Pythonie do ekstrakcji tekstów oraz generowania ich sztucznych odpowiedników (AI). Projekt powstał na potrzeby badań nad detekcją modeli językowych (AI Text Recognition). 
@@ -11,12 +6,12 @@ System pobiera teksty pisane przez człowieka (z Wikipedii i Wolnych Lektur), a 
 
 ---
 
-## ✨ Główne cechy (Architektura Big Data)
+## Główne cechy (Architektura Big Data)
 
 * **Superszybkie środowisko (`uv`):** Zarządzanie zależnościami i wirtualnym środowiskiem za pomocą nowoczesnego narzędzia `uv` firmy Astral.
 * **Optymalizacja pamięci (Append Storage):** Zapis wiersz po wierszu bezpośrednio na dysk (O(1) Memory). Gotowy na zbiory rzędu kilkudziesięciu tysięcy rekordów bez wycieków pamięci.
 * **Inteligentny Checkpointing:** System automatycznie rozpoznaje pobrane i wygenerowane już teksty. Po restarcie wznawia pracę dokładnie tam, gdzie skończył.
-* **Smart Rate Limiting & Rotacja Kluczy:** Wbudowany `RotatingAPIKeyManager` automatycznie żongluje kluczami w przypadku błędu 429 (Rate Limit).
+* **Smart Rate Limiting & Rotacja Kluczy:** Wbudowany `RotatingAPIKeyManager` automatycznie rotuje kluczami w przypadku błędu 429 (Rate Limit).
 * **Graceful Exit:** Kiedy wszystkie klucze wyczerpią swój dzienny limit (Quota Exhausted), program zapisuje postęp i bezpiecznie się wyłącza, co pozwala na pełną automatyzację (np. przez Cron / Task Scheduler).
 
 ---
@@ -35,7 +30,7 @@ powershell -ExecutionPolicy ByPass -c "irm [https://astral.sh/uv/install.ps1](ht
 
 ---
 
-## 🚀 Instalacja i konfiguracja
+## Instalacja i konfiguracja
 
 **1. Sklonuj repozytorium:**
 
@@ -99,17 +94,27 @@ Ponieważ system jest odporny na przerwania i sam zamyka się po wyczerpaniu dzi
 FormalTextDataset/
 ├── .env                  # (Zignorowany) Klucze i ustawienia
 ├── pyproject.toml        # Konfiguracja środowiska uv
+├── README.md             # przeczytajmnie.md
 ├── uv.lock               # Zablokowane wersje paczek
 ├── data/
 │   └── paired_dataset.csv # Wygenerowany zbiór danych
 └── src/
+    ├── scrapers/          <-- Logika pobierania z Wikipedii i Wolnych Lektur
+    │   ├── __init__.py
+    │   ├── wikipedia_client.py
+    │   └── lektury_client.py
+    ├── generators/        <-- generatory AI i menedżer rotacji kluczy
+    │   ├── __init__.py
+    │   ├── api_keys.py
+    │   └── llm_client.py
+    ├── __init__.py
     ├── main.py           # Orkiestrator (Punkt wejścia)
     ├── config.py         # Zarządzanie zmiennymi środowiskowymi (Pydantic Settings)
     ├── models.py         # Modele danych Pydantic (TextEntry)
     ├── checkpoint.py     # Logika wznawiania (Resume)
     ├── storage.py        # Moduł atomowego zapisu (AppendStorage)
-    ├── scrapers/         # Moduły pobierające dane (Wiki, Lektury)
-    └── generators/       # Klienci API i menedżer rotacji kluczy
+    └── scrapers/         # Moduły pobierające dane (Wiki, Lektury)
+
 
 ```
 
