@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+
+.env
+api_keys.txt
+groq_api_keys.txt
+
+data/
+*.csv
+checkpoints/
+logs/
+.idea/
+.vscode/
