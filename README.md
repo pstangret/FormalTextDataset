@@ -35,7 +35,7 @@ powershell -ExecutionPolicy ByPass -c "irm [https://astral.sh/uv/install.ps1](ht
 **1. Sklonuj repozytorium:**
 
 ```bash
-git clone [https://github.com/TwojaNazwaUzytkownika/FormalTextDataset.git](https://github.com/TwojaNazwaUzytkownika/FormalTextDataset.git)
+git clone https://github.com/pstangret/FormalTextDataset.git
 cd FormalTextDataset
 
 ```
